@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İTEM AVM</title>
+    <script src="assets/js/script.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+  
+</head>
+<body class="relative">
+    <!-- Mobil Hamburger Menü -->
+    <div class="mobile-menu fixed top-0 left-0 w-[80%] h-full bg-[#1E1E1F] z-50 overflow-y-auto">
+        <div class="p-6 border-b border-[#292929]">
+            <img src="assets/icon/item-avm-logo.svg" alt="Logo" class="h-10">
+        </div>
+        
+        <!-- Üst Menü Öğeleri -->
+        <div class="p-6 border-b border-[#292929]">
+            <a href="#" class="flex items-center text-white mb-4">
+                <i class="fas fa-percent mr-3"></i>
+                Günün Fırsatları
+            </a>
+            <a href="#" class="flex items-center text-white mb-4">
+                <i class="fas fa-blog mr-3"></i>
+                Blog
+            </a>
+            <a href="#" class="flex items-center text-white">
+                <i class="fas fa-headset mr-3"></i>
+                Destek Merkezi
+            </a>
+        </div>
+      
+        <!-- Ana Menü Butonları -->
+        <div class="p-6 flex flex-col gap-2">
+            <button class="border-[#FF5501]  border text-[#FF5501] px-2 py-2 gap-2 rounded-xl flex  justify-center items-center h-14 min-w-[120px] ">
+                <img src="assets/icon/bolt-orange-icon.svg" alt="Logo" class="h-5">
+                İlan ekle
+            </button>
+            <button class="flex items-center text-white w-full mb-4">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-[#6a6a952e] mr-3">
+                    <img src="assets/icon/sun-icon.svg" alt="Theme" class="h-5">
+                </div>
+                Tema Değiştir
+            </button>
+            <button class="flex items-center text-white w-full mb-4">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-[#6a6a952e] mr-3 relative">
+                    <img src="assets/icon/cart-icon.svg" alt="Cart" class="h-5">
+                    <span class="absolute -top-1 -right-1 bg-[#FF5501] text-xs rounded-full w-4 h-4 flex items-center justify-center">2</span>
+                </div>
+                Sepetim
+            </button>
+            
+            <div class="flex gap-2 items-start">
+            <button class="flex items-center text-white w-full mb-4 bg-green-500 p-4 rounded-xl">
+                <img src="assets/icon/bolt-icon.svg" alt="Register" class="h-5 mr-3">
+                Kayıt Ol
+            </button>
+            <button class="flex items-center text-white w-full bg-[#FF5501] p-4 rounded-xl">
+                <img src="assets/icon/login-icon.svg" alt="Login" class="h-5 mr-3">
+                Giriş Yap
+            </button>
+        </div>
+        </div>
+    </div>
+
+    <!-- Sayfa Karartma Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black opacity-50 z-40 hidden"></div>
+
+    <!-- Üst Bilgi Çubuğu -->
+    <div class="bg-[#FF5501] text-white py-4 px-4 min-h-[60px] flex justify-center items-center text-xs">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <img src="assets/icon/bar-icon.svg" alt="Logo" class="h-5">
+                <span>Türkiye'nin En İyi E-pin Sitesi!</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="#" class="hover:underline">% Günün Fırsatları</a>
+                <a href="#" class="hover:underline">Blog</a>
+                <div class="relative group">
+                    <a href="#" class="flex items-center hover:underline">
+                        Destek Merkezi
+                        <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ana Navigasyon -->
+    <div class="bg-[#1E1E1F] py-3 px-6 flex justify-center min-h-[90px]">
+        <div class="container mx-auto flex items-center justify-between gap-4">
+            <!-- Hamburger Menü Butonu (Mobil) -->
+            <button id="menuButton" class="md:hidden w-14 h-14 flex items-center justify-center bg-[#292929] rounded-xl">
+                <i class="fas fa-bars text-white text-xl"></i>
+            </button>
+
+            <!-- Logo -->
+            <div class="w-auto md:w-1/4">
+                <a href="#" class="block">
+                    <img src="assets/icon/item-avm-logo.svg" alt="Logo" class="h-10">
+                </a>
+            </div>
+
+            <!-- Arama Alanı -->
+            <div class="flex-1 md:w-2/4">
+                <div class="w-full max-w-[580px] flex gap-2">
+                    <div class="flex w-full">
+                    <input type="text" placeholder="Oyunlarda Ara" class="bg-gray-800 text-white px-4 py-2 rounded-l-xl w-full focus:outline-none h-14">
+                    <button class="bg-[#FF5501] px-3 py-2 rounded-r-xl h-14 w-14">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    </div>
+                    <button class="border-[#FF5501]  border text-[#FF5501] px-2 py-2 gap-2 rounded-xl flex items-center h-14 min-w-[120px] hidden md:flex">
+                        <img src="assets/icon/bolt-orange-icon.svg" alt="Logo" class="h-5">
+                        İlan ekle
+                    </button>
+                </div>
+            </div>
+
+            <!-- Desktop Menü Butonları -->
+            <div class="hidden md:flex w-1/4 justify-end items-center space-x-3">
+                <button class="text-white p-2 w-14 h-14 rounded-xl bg-[#6a6a952e] flex items-center justify-center">
+                    <img src="assets/icon/sun-icon.svg" alt="Logo" class="h-5">
+                </button>
+                <button class="text-white p-2 relative h-14 w-14 rounded-xl bg-[#6a6a952e] flex items-center justify-center">
+                    <img src="assets/icon/cart-icon.svg" alt="Logo" class="h-5">
+                    <span class="absolute top-3 right-3 bg-[#FF5501] text-xs rounded-full w-4 h-4 flex items-center justify-center">2</span>
+                </button>
+                    <button class="bg-green-500 text-white gap-2 px-2 py-2 rounded-xl flex items-center h-14">
+                        Kayıt Ol
+                        <img src="assets/icon/bolt-icon.svg" alt="Logo" class="h-5">               
+                    </button>
+                    <button class="bg-[#FF5501] text-white px-2 py-2 gap-2 rounded-xl flex items-center h-14">
+                        Giriş Yap
+                        <img src="assets/icon/login-icon.svg" alt="Logo" class="h-5">
+                    
+                    </button>
+                </div>
+           
+            </div>
+        </div>
+    </div>
+
+    <!-- Kategori Navigasyonu -->
+    <div class="bg-[#1E1E1F] px-6 py-2 flex justify-center space-x-4 h-[70px] border-t border-[#292929]">
+        <div class="w-[1409px] flex justify-between items-center max-w-full overflow-x-auto ">
+        <button class="flex items-center text-gray-300 hover:text-white px-2 py-1 nav-item gap-2 hover:bg-[#ff550124] rounded-xl min-w-[200px]">
+           <div class="h-10 w-10 rounded-lg flex justify-center items-center bg-[#ff550124]">
+             <img src="assets/icon/category-icon.svg" alt="Logo" class="h-[10px]">
+           </div> 
+            Kategoriler
+        </button>
+        <button class="flex items-center text-gray-300 hover:text-white px-2 py-1 nav-item gap-2 hover:bg-[#ff41443b] rounded-xl min-w-[200px]">
+            <div class="h-10 w-10 rounded-lg flex justify-center items-center bg-[#ff41443b]">
+               <img src="assets/icon/heart-icon.svg" alt="Logo" class="h-5">
+            </div>
+            Sosyal Medya
+            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+        </button>
+        <button class="flex items-center text-gray-300 hover:text-white px-2 py-1 nav-item gap-2 hover:bg-[#417dff24;] rounded-xl min-w-[200px]">
+            <div class="h-10 w-10 rounded-lg flex justify-center items-center bg-[#417dff24;]">
+               <img src="assets/icon/lol-icon.svg" alt="Logo" class="h-5">
+            </div>
+            LOL
+            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+        </button>
+        <button class="flex items-center text-gray-300 hover:text-white px-2 py-1 nav-item gap-2 hover:bg-[#ff46553b] rounded-xl min-w-[200px]">
+            <div class="h-10 w-10 rounded-lg flex justify-center items-center bg-[#ff46553b]">
+               <img src="assets/icon/valorant-red-icon.svg" alt="Logo" class="h-5">
+            </div>
+            Valorant
+            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+        </button>
+        <button class="flex items-center text-gray-300 hover:text-white px-2 py-1 nav-item gap-2 hover:bg-[#ee9b1e45] rounded-xl min-w-[200px]">
+            <div class="h-10 w-10 rounded-lg flex justify-center items-center bg-[#ee9b1e45]">
+                <img src="assets/icon/pubg-icon.svg" alt="Logo" class="h-5">
+            </div>
+            PUBG MOBILE
+            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+        </button>
+        <button class="flex items-center text-gray-300 hover:text-white px-2 py-1 nav-item gap-2 hover:bg-[#ff550124] rounded-xl min-w-[200px]">
+            <div class="h-10 w-10 rounded-lg flex justify-center items-center bg-[#ff550124]">
+                <img src="assets/icon/cart-icon-2.svg" alt="Logo" class="h-5">
+             </div>
+            İlan Pazarı
+        </button>
+        <button class="flex items-center text-gray-300 hover:text-white px-2 py-1 nav-item gap-2 hover:bg-[#ff550124] rounded-xl min-w-[200px]">
+            <div class="h-10 w-10 rounded-lg flex justify-center items-center bg-[#ff550124]">
+              <img src="assets/icon/shop-icon.svg" alt="Logo" class="h-5">
+            </div>
+            Mağazalar
+        </button>
+        <button class="flex items-center text-gray-300 hover:text-white px-2 py-1 nav-item gap-2 hover:bg-[#ff550124] rounded-xl min-w-[200px]">
+            <div class="h-10 w-10 rounded-lg flex justify-center items-center bg-[#ff550124]">
+              <img src="assets/icon/Cup.svg" alt="Logo" class="h-5">
+            </div>
+            Çekiliş
+        </button>
+        <button class="flex items-center text-gray-300 hover:text-white px-2 py-1 nav-item gap-2 hover:bg-[#ff550124] rounded-xl min-w-[200px]">
+            <div class="h-10 w-10 rounded-lg flex justify-center items-center bg-[#ff550124]">
+              <img src="assets/icon/ticket-icon.svg" alt="Logo" class="h-5">
+            </div>
+            Günün Fırsatları
+        </button>
+        </div>
+    </div>
+
+   
+   
+   <!-- PUBG Mobile Banner -->
+   <div class="bg-[url('assets/images/arka-slider.png')] bg-cover bg-center bg-no-repeat rounded-lg p-6 mb-8 h-[350px]">
+    <div class="container mx-auto py-4">
+            <div class="flex justify-between items-center mb-6 flex-col sm:flex-row gap-4">
+                <div class="flex items-center">
+                    <img src="assets/icon/pubg-mobile-white.svg" alt="PUBG Mobile" class="">
+                </div>
+                <h2 class="text-[19px] sm:text-[32px] font-bold text-white text-center">PUBG MOBILE İNDİRİMLERİNİ KAÇIRMA!</h2>
+                <a href="#" class="bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-full flex items-center h-14">
+                    İNDİRİMLERE GÖZ AT
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+     </div>
+
+      <!-- Oyun İkonları Slider -->
+      <div class="flex justify-center ">
+                <div class="icon-slider flex justify-center w-[1280px] p-2">
+                    <div class="icon-slider-container">
+                        <a href="#" class="game-icon">
+                            <img src="assets/images/slide-img.png" alt="Game 1" class="rounded-full">
+                        </a>
+                        <a href="#" class="game-icon">
+                            <img src="assets/images/slide-img2.png" alt="Game 1" class="rounded-full">
+                        </a>
+                        <a href="#" class="game-icon">
+                            <img src="assets/images/slide-img3.png" alt="Game 1" class="rounded-full">
+                        </a>
+                        <a href="#" class="game-icon">
+                            <img src="assets/images/slide-img4.png" alt="Game 1" class="rounded-full">
+                        </a>
+                        <a href="#" class="game-icon">
+                            <img src="assets/images/slide-img5.png" alt="Game 1" class="rounded-full">
+                        </a>
+                        <a href="#" class="game-icon">
+                            <img src="assets/images/slide-img6.png" alt="Game 1" class="rounded-full">
+                        </a>
+                        <a href="#" class="game-icon">
+                            <img src="assets/images/slide-img7.png" alt="Game 1" class="rounded-full">
+                        </a>
+                        <a href="#" class="game-icon">
+                            <img src="assets/images/slide-img8.png" alt="Game 1" class="rounded-full">
+                        </a>
+                        <a href="#" class="game-icon">
+                            <img src="assets/images/slide-img9.png" alt="Game 1" class="rounded-full">
+                        </a>
+                        <a href="#" class="game-icon">
+                            <img src="assets/images/slide-img10.png" alt="Game 1" class="rounded-full">
+                        </a>
+                        <a href="#" class="game-icon">
+                            <img src="assets/images/slide-img.png" alt="Game 1" class="rounded-full">
+                        </a>
+                        <a href="#" class="game-icon">
+                            <img src="assets/images/slide-img.png" alt="Game 1" class="rounded-full">
+                        </a>
+                    </div>
+                </div>
+      </div>
+          
+    </div>
+    <div class="container mx-auto  py-8 flex flex-col gap-4">
+            <!-- Oyun Slider Bölümü -->
+            <div class="flex bg-[#1E1E1E] rounded-[24px] overflow-hidden relative md:h-[500px]  md:top-[-150px] md:mb-[-150px]">
+                <!-- Sol Menü -->
+                <div class="w-[216px] bg-[#1a1a1a47] absolute z-[9] h-full flex-row flex sm:flex-col">
+                    <div class="game-button active flex flex-col items-center p-4 cursor-pointer h-[98px] font-bold gap-2" data-slide="0">
+                        <div class="w-8 h-8 mr-3 flex items-center justify-center">
+                            <img src="assets/icon/valorant-icon.svg" alt="Valorant" class="w-full h-full object-contain">
+                        </div>
+                        <span class="text-white sm:flex hidden">Valorant</span>
+                    </div>
+                    <div class="game-button flex flex-col items-center p-4 cursor-pointer  h-[98px] font-bold gap-2 border-t border-[#292929]" data-slide="1">
+                        <div class="w-8 h-8 mr-3 flex items-center justify-center">
+                            <img src="assets/icon/pubg-mobile-white.svg" alt="PUBG Mobile" class="w-full h-full object-contain">
+                        </div>
+                        <span class="text-white sm:flex hidden">PUBG MOBILE</span>
+                    </div>
+                    <div class="game-button flex flex-col items-center p-4 cursor-pointer  h-[98px] font-bold gap-2 border-t border-[#292929]" data-slide="2">
+                        <div class="w-8 h-8 mr-3 flex items-center justify-center">
+                            <img src="assets/icon/league-of-legends-icon.svg" alt="League Of Legends" class="w-full h-full object-contain">
+                        </div>
+                        <span class="text-white sm:flex hidden">League Of Legends</span>
+                    </div>
+                    <div class="game-button flex flex-col items-center p-4 cursor-pointer   h-[98px] font-bold gap-2 border-t border-[#292929] " data-slide="3">
+                        <div class="w-8 h-8 mr-3 flex items-center justify-center">
+                            <img src="assets/icon/mobile-legends-icon.svg" alt="Mobile Legends" class="w-full h-full object-contain">
+                        </div>
+                        <span class="text-white sm:flex hidden">Mobile Legends</span>
+                    </div>
+                    <div class="game-button flex flex-col items-center p-4 cursor-pointer  h-[98px] font-bold gap-2 border-t border-[#292929]" data-slide="4">
+                        <div class="w-8 h-8 mr-3 flex items-center justify-center">
+                            <img src="assets/icon/wolf-team-icon.svg" alt="Wolf Team" class="w-full h-full object-contain">
+                        </div>
+                        <span class="text-white sm:flex hidden">Wolf Team</span>
+                    </div>
+                </div>
+
+                <!-- Sağ İçerik Alanı -->
+                <div class="flex-1 relative slide-container">
+                    <div class="slide active w-full" id="slide-0">
+                       <img src="assets/images/main-banner.png" alt="Game 1" class="w-full h-full ">
+                    </div>
+                    <div class="slide w-full" id="slide-1">
+                        <img src="assets/images/main-banner.png" alt="Game 1" class="w-full h-full">
+                    </div>
+                    <div class="slide w-full" id="slide-2">
+                        <img src="assets/images/main-banner.png" alt="Game 1" class="w-full h-full">
+                    </div>
+                    <div class="slide w-full" id="slide-3">
+                        <img src="assets/images/main-banner.png" alt="Game 1" class="w-full h-full">
+                    </div>
+                    <div class="slide w-full" id="slide-4">
+                        <img src="assets/images/main-banner.png" alt="Game 1" class="w-full h-full">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alt Oyun Butonları -->
+           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+                    <div class="flex items-center gap-3 bg-[#1E1E1F] p-4 rounded-xl hover:bg-[#292929] transition-colors cursor-pointer relative">
+                        <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-[#ff46553b]">
+                            <img src="assets/icon/valorant-red-icon.svg" alt="Valorant" class="h-5">
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-white text-sm font-medium">Valorant</span>
+                            <span class="text-gray-400 text-xs">VP Satın Al</span>
+                        </div>
+                        <span class="bg-[#FF4655] w-2 h-10 absolute right-0 rounded-lg"></span>
+                    </div>
+    
+                    <div class="flex items-center gap-3 bg-[#1E1E1F] p-4 rounded-xl hover:bg-[#292929] transition-colors cursor-pointer relative">
+                        <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-[#417dff24]">
+                            <img src="assets/icon/lol-icon.svg" alt="League Of Legends" class="h-5">
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-white text-sm font-medium">League Of Legends</span>
+                            <span class="text-gray-400 text-xs">RP Satın Al</span>
+                        </div>
+                        <span class="bg-[#417DFF] w-2 h-10 absolute right-0 rounded-lg"></span>
+
+                    </div>
+    
+                    <div class="flex items-center gap-3 bg-[#1E1E1F] p-4 rounded-xl hover:bg-[#292929] transition-colors cursor-pointer relative">
+                        <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-[#ee9b1e45]">
+                            <img src="assets/icon/pubg-icon.svg" alt="PUBG Mobile" class="h-5">
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-white text-sm font-medium">PUBG Mobile</span>
+                            <span class="text-gray-400 text-xs">UC Satın Al</span>
+                        </div>
+                        <span class="bg-[#EE9B1E] w-2 h-10 absolute right-0 rounded-lg"></span>
+
+                    </div>
+    
+                    <div class="flex items-center gap-3 bg-[#1E1E1F] p-4 rounded-xl hover:bg-[#292929] transition-colors cursor-pointer relative">
+                        <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-[#417dff24]">
+                            <img src="assets/icon/lol-icon.svg" alt="League Of Legends" class="h-5">
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-white text-sm font-medium">League Of Legends</span>
+                            <span class="text-gray-400 text-xs">RP Satın Al</span>
+                        </div>
+                        <span class="bg-[#417DFF] w-2 h-10 absolute right-0 rounded-lg"></span>
+
+                    </div>
+    
+                    <div class="flex items-center gap-3 bg-[#1E1E1F] p-4 rounded-xl hover:bg-[#292929] transition-colors cursor-pointer relative">
+                        <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-[#ff46553b]">
+                            <img src="assets/icon/valorant-red-icon.svg" alt="Valorant" class="h-5">
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-white text-sm font-medium">Valorant</span>
+                            <span class="text-gray-400 text-xs">VP Satın Al</span>
+                        </div>
+                        <span class="bg-[#FF4655] w-2 h-10 absolute right-0 rounded-lg"></span>
+
+                    </div>
+           </div> 
+    </div>
+
+       <script>
+
+const gameButtons = document.querySelectorAll('.game-button');
+const slides = document.querySelectorAll('.slide');
+let currentSlide = 0;
+let slideInterval;
+
+function updateSlides(newIndex) {
+    slides.forEach(slide => {
+        slide.classList.remove('active');
+        slide.style.visibility = 'hidden';
+    });
+    gameButtons.forEach(btn => btn.classList.remove('active'));
+
+    slides[newIndex].classList.add('active');
+    slides[newIndex].style.visibility = 'visible';
+    gameButtons[newIndex].classList.add('active');
+
+    currentSlide = newIndex;
+}
+
+function nextSlide() {
+    const nextIndex = (currentSlide + 1) % slides.length;
+    updateSlides(nextIndex);
+}
+
+function previousSlide() {
+    const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+    updateSlides(prevIndex);
+}
+
+function startAutoSlide() {
+    if (slideInterval) {
+        clearInterval(slideInterval);
+    }
+    slideInterval = setInterval(nextSlide, 5000);
+}
+
+function stopAutoSlide() {
+    if (slideInterval) {
+        clearInterval(slideInterval);
+    }
+}
+
+gameButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        updateSlides(index);
+        stopAutoSlide();
+        startAutoSlide();
+    });
+});
+
+const sliderContainer = document.querySelector('.slide-container');
+const navDiv = document.createElement('div');
+navDiv.className = 'slider-nav';
+
+const prevButton = document.createElement('button');
+prevButton.innerHTML = '<i class="fas fa-chevron-left"></i>';
+prevButton.addEventListener('click', () => {
+    previousSlide();
+    stopAutoSlide();
+    startAutoSlide();
+});
+
+const nextButton = document.createElement('button');
+nextButton.innerHTML = '<i class="fas fa-chevron-right"></i>';
+nextButton.addEventListener('click', () => {
+    nextSlide();
+    stopAutoSlide();
+    startAutoSlide();
+});
+
+navDiv.appendChild(prevButton);
+navDiv.appendChild(nextButton);
+sliderContainer.appendChild(navDiv);
+
+sliderContainer.addEventListener('mouseenter', stopAutoSlide);
+sliderContainer.addEventListener('mouseleave', startAutoSlide);
+
+updateSlides(0);
+startAutoSlide();
+
+const iconSliderContainer = document.querySelector('.icon-slider-container');
+const iconContent = iconSliderContainer.innerHTML;
+
+iconSliderContainer.innerHTML = iconContent + iconContent;
+
+iconSliderContainer.addEventListener('animationend', () => {
+    iconSliderContainer.style.animation = 'none';
+    void iconSliderContainer.offsetWidth; // Reflow
+    iconSliderContainer.style.animation = 'scroll 20s linear infinite';
+});
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.getElementById('menuButton');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const overlay = document.getElementById('overlay');
+
+            menuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+                overlay.classList.toggle('hidden');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            });
+
+            overlay.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                overlay.classList.add('hidden');
+                document.body.style.overflow = '';
+            });
+        });
+       </script>         
+</body>
+</html>
